@@ -1,0 +1,231 @@
+/* 
+global 
+*/
+
+*{
+box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+font-size: 62.5%;
+}
+
+main {
+font-size: 1.3rem;
+}
+
+a {
+text-decoration: none;
+color: #fff;
+}
+
+p {
+font-size: 1.2rem;
+line-height: 1.5;
+margin: 1.5rem 0;
+color: #fff;
+
+}
+
+button {
+padding: 10px;
+color: #000;
+font-size: 18px;
+font-weight: bold;
+background: #fff;
+border-radius: 10px;
+}
+
+/*
+layout
+*/
+
+.wrapper {
+    background: url(/Images/field-login.jpg )
+    no-repeat center center;
+    min-height:  60rem;
+    overflow: hidden;
+    
+}
+
+.w3_baner {
+    background: url(images/dott.png)repeat 0px 0px;
+    background-size: 2px;
+    -webkit-background-size: 2px;
+    -moz-background-size: 2px;
+    -o-background-size: 2px;
+    -ms-background-size: 2px;
+}
+
+
+/*
+.header
+*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 80px;
+    /*border-bottom: 1px solid #cdcdcd;
+    box-shadow: 0 0 15px 0px #d2d2d2;*/
+    font-family: Helvetica;
+
+}
+
+.header ul {
+    display: flex;
+}
+
+.header li {
+    margin-left: 20px;
+}
+
+.header img {
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.nav-main {
+    width: 100%;
+    height: 80px;
+    /*background-color: #0005;*/
+    line-height: 80px;
+}
+
+nav ul {
+    float: right;
+    margin: 0;
+    margin-right: 1.9rem;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:white;
+    padding: 20px;
+}
+
+nav ul li a:hover {
+    color:orangered;
+}
+
+nav ul li a.active {
+    color : green;
+    font-weight: bolder;
+}
+
+
+nav ul li:hover {
+    /*background-color:coral*/
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+
+
+
+/*
+
+main
+
+*/
+
+body {
+    background:url('../images/bg.jpg') no-repeat 0% 100% fixed;
+    background-size: cover;
+	font-family: 'Lato', sans-serif;
+	text-align:center;
+}
+/*--header--*/
+.header-w3l{
+	margin: 2% auto;
+}
+.header-w3l h1 {
+    font-size: 1.5em;
+    letter-spacing: 6px;
+    color: white;
+    font-weight: 400;
+}
+/*--//header--*/
+
+/*--main--*/
+.main-agileits {
+    margin: 2% auto;
+   	background: rgba(10, 165, 44, 0.575);
+    width: 32%;
+	font-family: 'Lato', sans-serif;
+}
+.sub-head {
+    font-size: 18px;
+    padding: 42px;
+    color: white;
+    letter-spacing: 3px;
+}
+.sub-main{
+	position:relative;
+}
+
+.sub-main input[type="text"],.sub-main input[type="password"]  {
+    outline: none;
+    font-size: 0.8em;
+    margin: 4px 0px 18px 1px;
+    color: black;
+    padding: 10px 38px;
+    border: none;
+    border-radius: 2px;
+    width: 68%;
+    font-family: 'Lato', sans-serif;
+}
+.sub-main input[type="submit"] {
+    color: white;
+    background: orangered;
+    border: none;
+    padding: 14px 50px;
+    font-size: 22px;
+    border-radius: 2px;
+    margin: 17px;
+	font-family: 'Lato', sans-serif;
+	cursor:pointer;
+	text-transform:uppercase;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+.sub-main input[type="submit"]:hover {
+    background: #d9edf7;
+    color: black;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+
+/*--footer--*/
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+  }
+
+.footer p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: limegreen;
+}

@@ -1,0 +1,301 @@
+/* 
+global 
+*/
+
+*{
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+main {
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+    color: #fff;
+}
+
+button {
+    padding: 10px;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    background: #fff;
+    border-radius: 10px;
+}
+
+/*
+layout
+*/
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    background: url('/static/images/Ballkick\ Official.jpg');
+    min-height:  60rem;
+    overflow: hidden;
+}
+
+.w3_baner {
+    background: url('/static/images/dott.png');
+    background-size: 2px;
+    -webkit-background-size: 2px;
+    -moz-background-size: 2px;
+    -o-background-size: 2px;
+    -ms-background-size: 2px;
+}
+
+/*
+.header
+*/
+
+.header {
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 80px;
+    font-family: Helvetica;
+}   
+
+
+header h1 {
+    text-align: center;
+    color :whitesmoke;
+    font-family: Helvetica;
+    font-style: bold;
+    font-size: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    line-height: 40px;
+}
+
+.header ul {
+    display: flex;
+}
+
+.header li {
+    margin-left: 20px;
+}
+
+.header img {
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.nav-main {
+    width: 100%;
+    height: 80px;
+    /*background-color: #0005;*/
+    line-height: 80px;
+}
+
+nav ul {
+    float: right;
+    margin: 0;
+    margin-right: 1.9rem;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:white;
+    padding: 20px;
+}
+
+nav ul li a:hover {
+    color:orangered;
+}
+
+nav ul li a.active {
+    color : limegreen;
+    font-weight: bolder;
+}
+
+nav ul li:hover {
+    /*background-color:coral*/
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/*
+
+main
+
+*/
+
+main {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+    
+.main #clock {
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.main .caja {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.main .images-caja {
+    align-items: center;
+}
+
+.main .row {
+    display: flex;
+}
+
+.main p {
+    font-size: 2rem;
+    text-align: center;
+    font-family: Helvetica;
+    font-style: bold;
+    padding: 10px;
+}
+
+.main .jumbotron p {
+    color: black;
+}
+ 
+.btn-1 {
+    background-color: orangered;
+    padding: 0.7rem 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+/*search*/
+
+.search {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+    input{
+    padding:4px 10px;
+    border:0;
+    font-size:16px;
+    width: 350px;
+    height: 35px;
+}
+    .submit{
+    width: 100px;
+    background-color: orangered;
+    color:#fff;
+    height: 35px;
+}
+
+    .form {
+    margin:auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+    .form .submit-1{
+    padding:4px 10px;
+    border:0;
+    font-size:16px;
+    width: 200px;
+    height: 35px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+  
+.column p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+  #headline1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    font-size: 2.5rem;
+    font-style: bold;
+    color: whitesmoke;
+    font-family: Helvetica;
+}
+
+  #about-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.footer p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: limegreen;
+}
+
+.lead p {
+    color:black;
+}
+
+.fieldWrapper {
+    color: black;
+}
+
+.boton-iniciar-sesion {
+    background-color: orange;
+    margin-top: 20px;
+}

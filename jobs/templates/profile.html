@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PichanGO</title>
+    <link rel="shortcut icon" href="{% static "./images/ball.icon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "./css/reset.css" %}" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "./css/styles.css" %}" >
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+    <div class="w3_baner">  
+        <!--header-->
+        <header class ="header">
+            <figure>
+               <a href="/"><img src="{% static "./Images/logosmall.png" %}" alt="logo"></a>
+            </figure>
+            <nav class="nav-main">
+                <ul>
+                    <li><a href="/listajuegos/">JUEGOS</a></li>
+                    <li><a href="/listacanchas/">CANCHAS</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a class="active" href="{% url 'sign_out' %}">LOGOUT</a></li>
+                        {% else %}
+                            <li><a class="active" href="{% url 'sign_in' %}">LOGIN</a></li>                        
+                        {% endif %}
+                    
+                </ul>
+            </nav>
+        </header>
+        <!--main-->
+        <main class= "main">  
+            
+                    <div class="jumbotron">
+                        <h3 class="display-4">Bienvenido {{ request.user.first_name}}</h3>
+                        <p class="lead">Usuario: {{ request.user.username}} </p>
+                        <p class="lead">Nombre completo: {{ request.user.first_name}} {{request.user.last_name}}</p>
+                        <p class="lead">Teléfono: {{ request.user.jugador.telefono }}</p>
+                        <p class="lead">email: {{ request.user.email }}</p>
+                        <p class="lead">Distrito: {{ request.user.jugador.distrito }}</p>
+                        <p class="lead">Posición: {{ request.user.jugador.posicion }}</p>
+                        <a class="btn btn-primary btn-lg" href="{% url 'sign_out' %}" role="button">Cerrar sesión</a>
+                        <p class="lead">{{ request.user.jugador.descripcion }}</p>
+                
+                        
+                    
+                        
+                        
+                        <hr class="my-4">
+                        <p>Juegos en los que estás inscrito:</p>
+                        <table class="table table-sm table-dark">
+                            <thead>
+                            <tr>
+                                
+                                <th scope="col">Cancha</th>
+                                <th scope="col">Distrito</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Hora</th>
+
+
+                                <th scope="col">Inscrit@s</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for juego in juegos.all %}
+                                <tr>
+                                    <td><a href="{% url 'detail' juego.id %}">{{ juego.cancha }}</a></td>
+                                    <td><a href="{% url 'detail' juego.id %}">{{ juego.cancha.distrito }}</a></td>
+                                    <td><a href="{% url 'detail' juego.id %}">{{ juego.fecha }}</a></td>
+                                    <td><a href="{% url 'detail' juego.id %}">{{ juego.hora }}</a></td>
+                                    
+                                    <td>
+                                        
+                                        {{ juego.jugador.all | length }}
+                                    </td>
+                                </tr>
+                                {%  endfor   %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+        </main>
+  
+        <!--footer-->
+        <footer class="footer">
+
+            <p>Copyrtight &copy; 2020, pichanGO  </p>
+        </footer>
+
+    </div>
+    </div>
+
+</body>
+</html>
