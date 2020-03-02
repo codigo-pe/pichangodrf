@@ -5,14 +5,14 @@ from .models import *
 from .serializer import *
 from rest_framework import viewsets, permissions
 
-class CanchasList(viewsets.ModelViewSet):
+class Canchas(viewsets.ModelViewSet):
      queryset = Cancha.objects.all()
      serializer_class = CanchaSerializer
      #permission_classes= (permissions.IsAuthenticated,)
     
-class JuegosList(viewsets.ModelViewSet):
+class Juegos(viewsets.ModelViewSet):
     queryset = Juego.objects.all()
-    serializer_class = JuegoSerializer
+    serializer_class = JuegoListSerializer
     #permission_classes= (permissions.IsAuthenticated,)
 
 

@@ -1,22 +1,29 @@
 from rest_framework import serializers, viewsets
 from .models import Cancha, Jugador, Juego
+from django.contrib.auth.models import User
 
 #Serializadores permite que los datos complejos tales como los query sets y instancias de un modelo puedan ser
 #fácilmente convertidos a JSON XML u otro tipo de contenido 
 
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['first_name','last_name']
+
 class JugadorSerializer(serializers.ModelSerializer):
+     usuario = UsuarioSerializer()
      class Meta:
          model = Jugador
-         fields = ['telefono','distrito','posicion','descripcion']
+         fields = ['usuario','distrito','posicion','descripcion']
 
 class JuegoSerializer(serializers.HyperlinkedModelSerializer):
     jugadores = JugadorSerializer(many=True,read_only=True)
     class Meta:
         model = Juego
-        fields = ['id','estado','fecha','hora','descripcion','jugadores','cancha']
-    
-class CanchaSerializer(serializers.ModelSerializer):
-     juegos=JuegoSerializer(many=True, read_only=True)
+        fields = ['id','estado','fecha','hora','descripcion','jugadores']
+
+class CanchaSerializer(serializers.HyperlinkedModelSerializer):
+     juegos=JuegoSerializer(many=True,read_only=True)
      class Meta:
          model = Cancha
          fields = ['id','nombre','direccion','distrito','costo_por_hora','jugadores_por_equipo','teléfono','Ubicación','juegos']
@@ -26,3 +33,15 @@ class CanchaSerializer(serializers.ModelSerializer):
 #         for track_data in tracks_data:
 #             Track.objects.create(album=album, **track_data)
 #         return album
+
+class CanchajuegoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Cancha
+        fields = ['id','nombre','direccion','distrito','costo_por_hora','jugadores_por_equipo','teléfono','Ubicación']
+
+class JuegoListSerializer(serializers.HyperlinkedModelSerializer):
+    jugadores = JugadorSerializer(many=True,read_only=True)
+    cancha = CanchajuegoSerializer()
+    class Meta:
+        model = Juego
+        fields = ['id','estado','fecha','hora','descripcion','jugadores','cancha']

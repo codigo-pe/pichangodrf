@@ -32,14 +32,14 @@ class Jugador(models.Model):
     ('Ataque','Ataque'),
     ('Mixto','Mixto'),
     )
-    #usuario=models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario=models.OneToOneField(User, related_name= 'usuario', on_delete=models.CASCADE)
     telefono=models.CharField(max_length=20)
     distrito=models.CharField(max_length=100,choices= DISTRIT) 
     posicion=models.CharField(max_length=20,choices= POSITION)
     descripcion=models.TextField()
 
     def  __str__(self):
-        return self.telefono
+        return self.usuario.username
 
 class Juego(models.Model):
     STATUS = (
@@ -50,7 +50,7 @@ class Juego(models.Model):
     estado=models.CharField(max_length=100,choices= STATUS)
     fecha=models.DateField()
     hora=models.TimeField()
-    cancha=models.ForeignKey(Cancha,related_name='cancha',on_delete=models.CASCADE)
+    cancha=models.ForeignKey(Cancha,related_name='juegos',on_delete=models.CASCADE)
     jugadores=models.ManyToManyField(Jugador,related_name='jugadores')
     descripcion=models.TextField(null=True)
 
