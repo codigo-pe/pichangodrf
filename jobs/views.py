@@ -15,9 +15,9 @@ class Juegos(viewsets.ModelViewSet):
     serializer_class = JuegoListSerializer
     #permission_classes= (permissions.IsAuthenticated,)
 
-class Juegosform(viewsets.ModelViewSet):
+class Formjuegos(viewsets.ModelViewSet):
     queryset = Juego.objects.all()
-    serializer_class = JuegosformListSerializer
+    serializer_class = FormjuegosListSerializer
     #permission_classes= (permissions.IsAuthenticated,)
 
 

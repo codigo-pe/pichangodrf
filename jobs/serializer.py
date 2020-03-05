@@ -46,7 +46,8 @@ class JuegoListSerializer(serializers.ModelSerializer):
         model = Juego
         fields = ['id','estado','fecha','hora','descripcion','jugadores','cancha']
 
-class JuegosformListSerializer(serializers.ModelSerializer):
+class FormjuegosListSerializer(serializers.ModelSerializer):
+    cancha= serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Juego
-        fields = ['estado','fecha','hora','descripcion','cancha']
+        fields = ['id','estado','fecha','hora','descripcion','cancha']
