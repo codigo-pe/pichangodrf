@@ -15,6 +15,11 @@ class Juegos(viewsets.ModelViewSet):
     serializer_class = JuegoListSerializer
     #permission_classes= (permissions.IsAuthenticated,)
 
+class Juegosform(viewsets.ModelViewSet):
+    queryset = Juego.objects.all()
+    serializer_class = JuegosformListSerializer
+    #permission_classes= (permissions.IsAuthenticated,)
+
 
 
 # Create your views here.

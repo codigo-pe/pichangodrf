@@ -34,14 +34,19 @@ class CanchaSerializer(serializers.HyperlinkedModelSerializer):
 #             Track.objects.create(album=album, **track_data)
 #         return album
 
-class CanchajuegoSerializer(serializers.HyperlinkedModelSerializer):
+class CanchajuegoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cancha
         fields = ['id','nombre','direccion','distrito','costo_por_hora','jugadores_por_equipo','teléfono','Ubicación']
 
-class JuegoListSerializer(serializers.HyperlinkedModelSerializer):
-    jugadores = JugadorSerializer(many=True,read_only=True)
+class JuegoListSerializer(serializers.ModelSerializer):
+    jugadores = JugadorSerializer(many=True)
     cancha = CanchajuegoSerializer()
     class Meta:
         model = Juego
         fields = ['id','estado','fecha','hora','descripcion','jugadores','cancha']
+
+class JuegosformListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Juego
+        fields = ['estado','fecha','hora','descripcion','cancha']
