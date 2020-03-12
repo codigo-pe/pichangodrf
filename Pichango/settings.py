@@ -60,6 +60,7 @@ CORS_ORIGIN_WHITELIST = [
     "https://sub.example.com",
     "http://127.0.0.1:9000",
     "http://localhost:3000",
+    "http://localhost:3001",
 ]
 
 ROOT_URLCONF = 'Pichango.urls'

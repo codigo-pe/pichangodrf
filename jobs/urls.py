@@ -7,6 +7,6 @@ router.register('canchaslist',views.Canchas)
 router.register('juegoslist',views.Juegos)
 router.register('formjuegos',views.Formjuegos)
 urlpatterns = [
-    path('',include(router.urls))
-
+    path('',include(router.urls)),
+    path('login/',views.LoginView.as_view())
 ]
