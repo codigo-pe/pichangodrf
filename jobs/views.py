@@ -12,7 +12,7 @@ import json
 #Autentificación
 from rest_framework.authtoken.models import Token
 
-# Generar tokens para todos los usuarios
+# Generar Auth tokens para todos los usuarios
 for user in User.objects.all():
     Token.objects.get_or_create(user=user)
 
