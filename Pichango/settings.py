@@ -127,15 +127,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+#Implementación de permisos y auth token
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',)
+    'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated', ),
+    'DEFAULT_AUTHENTICATION_CLASSES' : ('rest_framework.authentication.TokenAuthentication',)
 }
 
-
-REST_FRAMEWORK={
-  'DEFAULT_AUTHENTICATION_CLASSES': [
-      'rest_framework_simplejwt.authentication.JWTAuthentication',
-   ]}
+#Implementación de permisos y web token
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated', )
+# }
 
 
 # Static files (CSS, JavaScript, Images)
