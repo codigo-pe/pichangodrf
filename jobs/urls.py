@@ -26,5 +26,13 @@ router.register('formjuegos',views.Formjuegos)
 urlpatterns = [
     path('',include(router.urls)),
     path('login/',views.LoginView.as_view()),
+    # Vista basada en funciones, se reemplazó por la vista login basada en clases
     # path('login/',views.login),
+    
+    #gets all user profiles and create a new profile
+    path("all-profiles",JugadorProfileListCreateView.as_view(),name="all-profiles"),
+    # retrieves profile details of the currently logged in user
+    path("profile/<int:pk>",JugadorProfileDetailView.as_view(),name="profile"),
+
+
 ]

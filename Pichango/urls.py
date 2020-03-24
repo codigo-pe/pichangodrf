@@ -21,7 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('jobs.urls')),
     path('api-auth/', include('rest_framework.urls')),
+    # Rutas de Web token
     # path('api/token/', TokenObtainPairView.as_view()),
     # path('api/token/refresh', TokenRefreshView.as_view()),
+    
+    #path to djoser end points se instaló con pip install djoser
+    path('auth/', include('djoser.urls')),
 
 ]

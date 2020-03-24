@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
+    #third party package for user registration and authentication endpoints 	
+    'djoser',
 ]
 
 MIDDLEWARE = [

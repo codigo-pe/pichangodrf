@@ -40,8 +40,35 @@ class Formjuegos(viewsets.ModelViewSet):
     queryset = Juego.objects.all()
     serializer_class = FormjuegosListSerializer
 
+
+
+# Vista de todos los jugadores
+#***************************************
+from rest_framework.generics import (ListCreateAPIView,RetrieveUpdateDestroyAPIView,)
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsOwnerProfileOrReadOnly
+
+class JugadorProfileListCreateView(ListCreateAPIView):
+    queryset=Jugador.objects.all()
+    serializer_class=JugadorProfileSerializer
+    permission_classes=[IsAuthenticated]
+    def perform_create(self, serializer):
+        user=self.request.user
+        serializer.save(user=user)
+
+#Vista de un jugador en específico
+class JugadorProfileDetailView(RetrieveUpdateDestroyAPIView):
+    queryset=Jugador.objects.all()
+    serializer_class=JugadorProfileSerializer
+    permission_classes=[IsOwnerProfileOrReadOnly,IsAuthenticated]
+
+#*********************************************
+
 #API LOGIN utilizando clases
 class LoginView(APIView):
+    # Generar Auth tokens para todos los usuarios
+    for user in User.objects.all():
+        Token.objects.get_or_create(user=user)    
     permission_classes = (permissions.AllowAny,)
     def post(self, request,):
         username = request.data.get("username")
