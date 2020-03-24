@@ -3,7 +3,7 @@ from django.core import serializers
 from django.http import HttpResponse
 from .models import *
 from .serializer import *
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 
 from rest_framework.views import APIView
 from django.contrib.auth import authenticate
@@ -63,6 +63,24 @@ class JugadorProfileDetailView(RetrieveUpdateDestroyAPIView):
     permission_classes=[IsOwnerProfileOrReadOnly,IsAuthenticated]
 
 #*********************************************
+#Vista Login
+# API login basada en funciones
+# @csrf_exempt
+# @api_view(["POST"])
+# @permission_classes((AllowAny,))
+# def login(request):
+#     username = request.data.get("username")
+#     password = request.data.get("password")
+#     if username is None or password is None:
+#         return Response({'error': 'Por favor ingrese usuario y contraseña'},
+#                         status=HTTP_400_BAD_REQUEST)
+#     user = authenticate(username=username, password=password)
+#     if not user:
+#         return Response({'error': 'Credenciales inválidas'},
+#                         status=HTTP_404_NOT_FOUND)
+#     token, _ = Token.objects.get_or_create(user=user)
+#     return Response({'token': token.key},
+#                     status=HTTP_200_OK)
 
 #API LOGIN utilizando clases
 class LoginView(APIView):
@@ -82,23 +100,15 @@ class LoginView(APIView):
         respuesta = json.dumps(data)
         return HttpResponse(respuesta,content_type='application/json')
 
-# API login basada en funciones
-# @csrf_exempt
-# @api_view(["POST"])
-# @permission_classes((AllowAny,))
-# def login(request):
-#     username = request.data.get("username")
-#     password = request.data.get("password")
-#     if username is None or password is None:
-#         return Response({'error': 'Por favor ingrese usuario y contraseña'},
-#                         status=HTTP_400_BAD_REQUEST)
-#     user = authenticate(username=username, password=password)
-#     if not user:
-#         return Response({'error': 'Credenciales inválidas'},
-#                         status=HTTP_404_NOT_FOUND)
-#     token, _ = Token.objects.get_or_create(user=user)
-#     return Response({'token': token.key},
-#                     status=HTTP_200_OK)
+# Vista Logout
+class LogoutView(APIView):
+    def get(self, request, format=None):
+        # Borra el token
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
+
+
+
 
 
 # Create your views here.
