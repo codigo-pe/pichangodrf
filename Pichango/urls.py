@@ -26,6 +26,8 @@ urlpatterns = [
     # path('api/token/refresh', TokenRefreshView.as_view()),
     
     #path to djoser end points se instaló con pip install djoser
+    # La ruta djoser para registrar usuarios es auth/users/. También acepta el método get, pero solo el superusuario (token del superusuario) tiene acceso a la lista de ususarios.
+    # La ruta djoser para visualizar y modificar los datos del usuario es auth/users/me, solo se puede acceder con el token del propio usuario.
     path('auth/', include('djoser.urls')),
 
 ]
