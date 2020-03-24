@@ -75,7 +75,7 @@ class LoginView(APIView):
         password = request.data.get("password")
         user = authenticate(username=username, password=password)
         if user:
-            Token.objects.get_or_create(user=username)
+            Token.objects.get_or_create(user=user)
             data = {"token": user.auth_token.key} 
         else:
             data = {"error": "No Son las Credenciales XD"}
