@@ -67,14 +67,15 @@ class JugadorProfileDetailView(RetrieveUpdateDestroyAPIView):
 #API LOGIN utilizando clases
 class LoginView(APIView):
     # Generar Auth tokens para todos los usuarios
-    for user in User.objects.all():
-        Token.objects.get_or_create(user=user)    
+    # for user in User.objects.all():
+    #     Token.objects.get_or_create(user=user)    
     permission_classes = (permissions.AllowAny,)
     def post(self, request,):
         username = request.data.get("username")
         password = request.data.get("password")
         user = authenticate(username=username, password=password)
         if user:
+            Token.objects.get_or_create(user=username)
             data = {"token": user.auth_token.key} 
         else:
             data = {"error": "No Son las Credenciales XD"}
