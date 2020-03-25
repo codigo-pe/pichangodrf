@@ -9,7 +9,7 @@ from rest_framework.views import APIView
 from django.contrib.auth import authenticate
 import json
 
-#Autentificación
+#Autenticación
 from rest_framework.authtoken.models import Token
 
 from django.views.decorators.csrf import csrf_exempt
@@ -21,11 +21,6 @@ from rest_framework.status import (
     HTTP_200_OK
 )
 from rest_framework.response import Response
-
-
-# Generar Auth tokens para todos los usuarios
-for user in User.objects.all():
-    Token.objects.get_or_create(user=user)
 
 class Canchas(viewsets.ModelViewSet):
      queryset = Cancha.objects.all()
