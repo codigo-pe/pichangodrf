@@ -46,10 +46,10 @@ from .permissions import IsOwnerProfileOrReadOnly
 class JugadorProfileListCreateView(ListCreateAPIView):
     queryset=Jugador.objects.all()
     serializer_class=JugadorProfileSerializer
-    permission_classes=[IsAuthenticated]
+    # permission_classes=[IsAuthenticated]
     def perform_create(self, serializer):
-        user=self.request.user
-        serializer.save(user=user)
+        usuario=self.request.user
+        serializer.save(usuario=usuario)
 
 #Vista de un jugador en específico
 class JugadorProfileDetailView(RetrieveUpdateDestroyAPIView):

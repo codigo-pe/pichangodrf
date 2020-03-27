@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 #Serializer creado para mostrar el registro de jugadores
 class JugadorProfileSerializer(serializers.ModelSerializer):
-    user=serializers.StringRelatedField(read_only=True)
+    usuario=serializers.StringRelatedField(read_only=True)
     class Meta:
         model=Jugador
         fields='__all__'

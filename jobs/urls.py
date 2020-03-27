@@ -32,9 +32,8 @@ urlpatterns = [
     #vista logout
     path('logout/', views.LogoutView.as_view()),
     #gets all user profiles and create a new profile
-    path("all-profiles",JugadorProfileListCreateView.as_view(),name="all-profiles"),
+    path("all-profiles/",JugadorProfileListCreateView.as_view(),name="all-profiles"),
     # retrieves profile details of the currently logged in user
     path("profile/<int:pk>",JugadorProfileDetailView.as_view(),name="profile"),
-
-
+    
 ]

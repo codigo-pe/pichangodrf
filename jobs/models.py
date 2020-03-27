@@ -33,10 +33,10 @@ class Jugador(models.Model):
     ('Mixto','Mixto'),
     )
     usuario=models.OneToOneField(User, related_name= 'usuario', on_delete=models.CASCADE)
-    telefono=models.CharField(max_length=20)
-    distrito=models.CharField(max_length=100,choices= DISTRIT) 
-    posicion=models.CharField(max_length=20,choices= POSITION)
-    descripcion=models.TextField()
+    telefono=models.CharField(max_length=20, null=True)
+    distrito=models.CharField(max_length=100,choices= DISTRIT, null=True) 
+    posicion=models.CharField(max_length=20,choices= POSITION,null=True)
+    descripcion=models.TextField(null=True)
 
     def  __str__(self):
         return self.usuario.username
